@@ -4,4 +4,4 @@ ADD ./target/*.war hotelmanagement.war
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-war","hotelmanagement.war"]
+ENTRYPOINT ["java","-jar","hotelmanagement.war"]
