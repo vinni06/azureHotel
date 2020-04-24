@@ -1,7 +1,7 @@
 FROM java:8-jdk-alpine
 
-COPY ./target/hotelmanagement-0.0.1-SNAPSHOT.jar /usr/app
+ADD ./**.war hotelmanagement.war
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","hotelmanagement-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","hotelmanagement.war"]
