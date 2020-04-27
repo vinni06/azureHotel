@@ -12,7 +12,7 @@ services:
     networks:
       - test
   myapp-main:
-    image: hotelmanagement
+    image: azurebackend
     container_name : hotelmanagement
     restart: on-failure
     depends_on:
