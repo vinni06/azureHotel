@@ -1,27 +1,31 @@
-version: '1'
+version: '2.0'
 
 services:
-
-  myapp-mysql:
-    image: mysql:8.0
+  mysqldb:
+    image: mysql:5.7
+    container_name : mysqldb
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=MyAppDb
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=Welcome123
-    ports:
-      - 3306:3306
-
+      - MYSQL_ROOT_PASSWORD=Welcome123
+      - MYSQL_DATABASE=mahesh
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=testuser@123
+    networks:
+      - test
   myapp-main:
     image: hotelmanagement
+    container_name : hotelmanagement
     restart: on-failure
     depends_on:
-      - myapp-mysql
+      - mysqldb
     ports:
-      - 8080:8080
+      - 8081:8080
+    networks:
+      - test
     environment:
-      - DATABASE_HOST=myapp-mysql
+      - DATABASE_HOST=mysqldb
       - DATABASE_USER=root
-      - DATABASE_PASSWORD=password
-      - DATABASE_NAME=MyAppDb
-      - DATABASE_PORT=3306
+      - DATABASE_PASSWORD=Welcome123
+      - DATABASE_NAME=mahesh
+      - DATABASE_PORT=3307
+networks:
+  test:
