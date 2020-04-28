@@ -9,6 +9,8 @@ services:
       - MYSQL_DATABASE=mahesh
       - MYSQL_USER=testuser
       - MYSQL_PASSWORD=testuser@123
+    ports:
+      - 3307:3306
     networks:
       - test
   myapp-main:
