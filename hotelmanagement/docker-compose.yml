@@ -12,7 +12,7 @@ services:
     ports:
       - 3307:3306
     networks:
-      - test
+      - hotel
   myapp-main:
     image: azurebackend:v
     container_name : hotelmanagement
@@ -22,7 +22,7 @@ services:
     ports:
       - 8081:8080
     networks:
-      - test
+      - hotel
     environment:
       - DATABASE_HOST=mysqldb
       - DATABASE_USER=root
@@ -30,4 +30,4 @@ services:
       - DATABASE_NAME=mahesh
       - DATABASE_PORT=3307
 networks:
-  test:
+  hotel:
